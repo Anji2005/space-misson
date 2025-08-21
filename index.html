@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Space Mission Control</title>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet (map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <h1>SPACE MISSION CONTROL</h1>
+    <p class="subtitle">Satellites • Solar Dashboard • Track the ISS</p>
+    <button id="enterBtn" class="btn">ENTER MISSION CONTROL</button>
+  </header>
+
+  <!-- MAIN CONTENT (hidden until Enter clicked) -->
+  <main id="main" class="hidden">
+    <h2 class="section-title">EXPLORE SPACE</h2>
+
+    <!-- GRID OF CARDS -->
+    <div class="grid">
+      <div class="card" data-feature="satellites"><h3>CURRENT SATELLITES</h3></div>
+      <div class="card" data-feature="startracker"><h3>STAR TRACKER</h3></div>
+      <div class="card" data-feature="iss"><h3>INTERNATIONAL SPACE STATION</h3></div>
+      <div class="card" data-feature="solar"><h3>SOLAR ENERGY DASHBOARD</h3></div>
+      <div class="card" data-feature="habitat"><h3>ASTRONAUT HABITAT MONITOR</h3></div>
+      <div class="card" data-feature="coming"><h3>COMING SOON</h3></div>
+    </div>
+
+    <!-- FEATURE AREA -->
+    <div id="featureArea">
+      <!-- ISS FEATURE -->
+      <section id="issSection" class="feature hidden">
+        <h3>ISS Overhead</h3>
+        <div id="issInfo">Loading ISS position...</div>
+        <div id="map" style="height:360px; border-radius:10px; overflow:hidden;"></div>
+      </section>
+
+      <!-- SOLAR FEATURE -->
+      <section id="solarSection" class="feature hidden">
+        <h3>Solar Energy Dashboard</h3>
+        <p>Upload a CSV with columns <code>date,production</code></p>
+        <input id="csvFile" type="file" accept=".csv" />
+        <canvas id="solarChart" width="800" height="300"></canvas>
+      </section>
+
+      <!-- Placeholder -->
+      <section id="placeholder" class="feature hidden">
+        <h3 id="placeholderTitle"></h3>
+        <p>Feature content will appear here.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- External JS libraries -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+
+  <!-- Your script -->
+  <script src="script.js"></script>
+</body>
+</html>
